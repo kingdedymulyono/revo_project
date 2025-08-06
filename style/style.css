@@ -1,0 +1,62 @@
+body {
+    background-image: url("../patternpad-2025-08-06-09-18-44.png");
+    background-size: contain;
+}
+
+main {
+    width: 100dvw !important;
+}
+
+form {
+    min-height: 50dvh !important;
+    background-image: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+
+}
+
+form input:nth-child(1) {
+    border-top-left-radius: .5rem;
+    padding: .5rem;
+    border-bottom-left-radius: .5rem;
+    outline: none;
+}
+
+form button {
+    /* background-color: #0d6efd; */
+    padding: .5rem;
+    /* color: white; */
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.box1 {
+    background-color: white;
+}
+.inpBox1{
+    padding: 0;
+}
+@media (max-width:720px) {
+    nav{
+        display: none
+    }
+    .inpBox1{
+        padding: .5rem !important;
+    }
+    .flex {
+        flex-direction: column;
+    }
+
+    form input:nth-child(1) {
+        border-radius: .5rem;
+        margin-bottom: .5rem;
+        margin-top: .5rem;
+    }
+    
+    form button {
+        border-radius: .5rem;
+        /* margin-bottom: .5rem; */
+        transition: 1s;
+    }
+}

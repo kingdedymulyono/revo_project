@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+</head>
+
+<body>
+    <nav class="bg-blue-500 p-3 flex justify-between text-white">
+        <p>Portfolio</p>
+        <p>Dedyas's Assignment</p>
+        <p>suatu icon</p>
+    </nav>
+
+    <main class="p-6">
+        <form action="" class="w-full p-2 rounded-3xl mt-6">
+            <p class="text-3xl text-center font-light mt-4">Make a To-do list</p>
+            <br>
+            <div class="bg-cyan-0 p-3 bg-neutral justify-center flex mx-auto box1 rounded-xl">
+                <div class="flex flex-col">
+                    <section class="flex align-items center justify-content-center" >
+                        <label for="input1" class="p-2">What is your activity?</label>
+                        <div class="flex shadow-lg p-2 rounded-xl inpBox1">
+                            <input type="text" name="input1" id="text" class="bg-blue-50 focus:shadow-sm focus:shadow-blue-500/50 duration-400"
+                                placeholder="Input here">
+                            <button type="button" class=" bg-sky-200 hover:bg-sky-400 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 duration-400 " onclick="href()">Kirim</button>
+                        </div>
+                    </section>
+                    <a class="mx-auto p-2 text-center mt-4 border-2 border-sky-400 cursor-pointer rounded-full duration-400 text-xs hover:bg-sky-400 hover:text-white hover:shadow-cyan-500/50 hover:shadow-lg">Advanced options</a>
+                    <br>
+                    <section id="adv">
+                        <div class="bg-white shadow-lg p-3 rounded-xl">
+                            <label for="deadline">Deadline</label>
+                            <input type="date" id="deadline" name="deadline" class="bg-blue-50 p-2 rounded-xl">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="script/script.js"></script>
+</html>
