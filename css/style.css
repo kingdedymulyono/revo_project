@@ -1,6 +1,7 @@
 body {
-    background-image: url("../patternpad-2025-08-06-09-18-44.png");
+    background-image: url("../assets/patternpad-2025-08-06-09-18-44.png");
     background-size: contain;
+    overflow-x: hidden;
 }
 
 main {
@@ -11,13 +12,15 @@ form {
     min-height: 50dvh !important;
     background-image: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(20px);
-
 }
-
+.deadline{
+    display: none;
+}
 form input:nth-child(1) {
-    border-top-left-radius: .5rem;
+    /* border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem; */
+    border-radius: .5rem;
     padding: .5rem;
-    border-bottom-left-radius: .5rem;
     outline: none;
 }
 
@@ -25,8 +28,7 @@ form .btn1 {
     /* background-color: #0d6efd; */
     padding: .5rem;
     /* color: white; */
-    border-top-right-radius: .5rem;
-    border-bottom-right-radius: .5rem;
+    border-radius: .5rem;
     cursor: pointer;
     transition: 1s;
 }
@@ -43,24 +45,51 @@ ul li{
     object-fit: contain;
     border-radius: 50%;
 }
+.filter{
+    display: none;
+}
 select{
     padding: .5rem;
 }
 .inpBox1{
-    padding: 0;
+    /* padding: 0; */
+}
+.status i{
+    display: none;
+}
+table tr td{
+    padding: .5rem 0 ;
+}
+footer{
+    background-color: rgba(255,255,255,0.6) !important;
+    /* background-image:  !important; */
+    position: fixed;
+    bottom: 0;
+    width: 100dvw !important;
+    backdrop-filter: blur(20px);
 }
 @media (max-width:720px) {
+    
     main{
         padding: 1.5rem !important;
     }
     nav{
         display: none
     }
+    .deadline{
+        display: inline;
+    }
     .inpBox1{
         padding: .5rem !important;
     }
     .rowflex {
         flex-direction: row !important;
+    }
+    .status i{
+        display: block;
+    }
+    .status span{
+        display: none;
     }
     .flex {
         flex-direction: column;

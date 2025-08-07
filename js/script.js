@@ -1,8 +1,11 @@
 // const href = () => {
 //     window.location.href="./test.htm"
 // }
-const btn2=document.querySelectorAll('.btn2')
+const btn2=document.querySelectorAll('.btn2');
+const btnf=document.getElementById("btnF")
+const filterBox=document.getElementById("filterBox")
 var i=0;
+var x=0;
 const check = () => {
     if(i==0){
 
@@ -18,4 +21,15 @@ const check = () => {
         })
         i=0;
     }
+}
+
+const showFilter = () => {
+    if(x==0){
+        filterBox.style.display='block'
+        x=1;
+    }else{
+        filterBox.style.display='none'
+        x=0
+    }
+    
 }
