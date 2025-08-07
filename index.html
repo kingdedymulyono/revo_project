@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=sort" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 
@@ -46,10 +48,43 @@
                 </div>
             </div>
             <div id="list" class="bg-white mt-4 rounded-xl shadow-lg p-2">
-                <ul class="list-none">
+                <div class="flex w-full">
+                    <div
+                        class="flex rowflex items-center gap-1 m-1 mb-0 w-fit p-2 duration-400 hover:bg-gray-200 cursor-pointer rounded-full">
+                        <span>
+                            Filter
+                        </span>
+                        <span class="material-symbols-outlined">
+                            sort
+                        </span>
+                    </div>
+                    <div class="filter p-2" id="filterBox">
+                        <select class=" border rounded-lg p-1 py-0 w-full" name="filter" id="filter">
+                            <option value="filter" selected>Select a Filter</option>
+                            <option value="0">Completed</option>
+                            <option value="1">Uncompleted</option>
+                            <option value="2">Abandoned</option>
+                        </select>
+                    </div>
+                </div>
+                <ul class="list-none m-3">
                     <li class="flex items-center rowflex  gap-3">
-                        <button type="button" class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 " onclick="check()"></button>
+                        <button type="button"
+                            class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
+                            onclick="check()"></button>
                         <p class="p-1">Apacoba</p>
+                    </li>
+                    <li class="flex items-center rowflex  gap-3">
+                        <button type="button"
+                            class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
+                            onclick="check()"></button>
+                        <p class="p-1">Apacoba1</p>
+                    </li>
+                    <li class="flex items-center rowflex  gap-3">
+                        <button type="button"
+                            class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
+                            onclick="check()"></button>
+                        <p class="p-1">Apacoba2</p>
                     </li>
                 </ul>
             </div>
