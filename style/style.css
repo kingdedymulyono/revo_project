@@ -21,7 +21,7 @@ form input:nth-child(1) {
     outline: none;
 }
 
-form button {
+form .btn1 {
     /* background-color: #0d6efd; */
     padding: .5rem;
     /* color: white; */
@@ -30,31 +30,48 @@ form button {
     cursor: pointer;
     transition: 1s;
 }
-
+ul li{
+    /* display: flex; */
+}
 .box1 {
     background-color: white;
+}
+.btn2{
+    /* /* width: 4dvw; */
+    height: 2dvw;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 50%;
 }
 .inpBox1{
     padding: 0;
 }
 @media (max-width:720px) {
+    main{
+        padding: 1.5rem !important;
+    }
     nav{
         display: none
     }
     .inpBox1{
         padding: .5rem !important;
     }
+    .rowflex {
+        flex-direction: row !important;
+    }
     .flex {
         flex-direction: column;
     }
-
+    form{
+        padding: 1.2rem !important;
+    }
     form input:nth-child(1) {
         border-radius: .5rem;
         margin-bottom: .5rem;
         margin-top: .5rem;
     }
     
-    form button {
+    form .btn1 {
         border-radius: .5rem;
         /* margin-bottom: .5rem; */
         transition: 1s;
