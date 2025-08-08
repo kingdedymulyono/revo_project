@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=sort" />
-
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 
@@ -20,8 +19,8 @@
     </nav>
 
     <main class="p-12">
-        <form action="" class="w-full p-12  rounded-4xl mt-6 shadow-lg">
-            <p class="text-3xl text-center font-light mt-4">Make a To-do list</p>
+        <form action="" class="w-full p-12 mb-12 rounded-4xl mt-6 shadow-lg">
+            <p class="text-3xl text-center font-light">Make a To-do list</p>
             <br>
             <div class="bg-cyan-0 p-3 bg-neutral justify-center flex mx-auto box1 rounded-3xl">
                 <!-- <section class="flex align-items center justify-content-center gap-5"> -->
@@ -35,10 +34,8 @@
                         <input type="date" id="deadlineInput" name="deadline"
                             class="bg-blue-50 p-2 rounded-lg border border-blue-200">
                     </div>
-                    <button type="button"
-                        id="sendBtn"
-                        class="btn1 bg-sky-200 hover:bg-sky-400 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 duration-400 "
-                        >Kirim</button>
+                    <button type="button" id="sendBtn"
+                        class="btn1 bg-sky-200 hover:bg-sky-400 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 duration-400 ">Kirim</button>
                     <!-- </section> -->
                     <!-- <a
                             class="mx-auto p-2 text-center mt-4 border-2 border-sky-400 cursor-pointer rounded-full duration-400 text-xs hover:bg-sky-400 hover:text-white hover:shadow-cyan-500/50 hover:shadow-lg">Advanced
@@ -49,7 +46,7 @@
                 </div>
             </div>
             </div>
-            <div id="list" class="bg-white mt-4 rounded-xl shadow-lg p-2">
+            <div id="list" class="bg-white mt-4 rounded-3xl shadow-lg p-3">
                 <div class="flex w-full ">
                     <button type="button" id="btnF"
                         class="flex rowflex items-center gap-1 m-2 w-fit p-2 duration-400 hover:bg-gray-200 cursor-pointer rounded-xl"
@@ -64,35 +61,33 @@
                     <div class="filter p-1 " id="filterBox">
                         <select class=" border rounded-lg p-1 py-0 m-4 mx-auto w-full" name="filter" id="filter">
                             <option value="filter" selected>Select a Filter</option>
-                            <option value="0">Completed</option>
-                            <option value="1">Uncompleted</option>
-                            <option value="2">Abandoned</option>
+                            <option value="Complete">Completed</option>
+                            <option value="Pending">Uncompleted</option>
+                            <option value="Deadline">Abandoned</option>
                         </select>
                     </div>
                 </div>
                 <h3 class="p-2 m-2 xl">List Tugas</h3>
-                <table class="table w-full text-center">
+                <table class="table w-full text-center m-0">
                     <thead>
                         <!-- <tr>
                             <th class="p-2">Btn</th>
                             <th class="p-2">Name</th>
-                            <th class="p-2">Status</th>
-                            <th class="p-2">Action</th>
+                            <th class="p-2">Status /th>
+                            <th m-1 class=2p-2">Action</th>
                         </tr> -->
                     </thead>
-                    <tbody>
+                    <tbody id="res">
                         <tr>
-                            <!-- <li class="flex items-center rowflex my-1 gap-3"> -->
                             <td>
-                                <button type="button"
-                                    class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
-                                    onclick="check()"></button>
+                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
+                                    <input type="checkbox">
+                                    <p class="text-left text-sm">Sudah selesai</p>
+                                </div>
                             </td>
+                            <td class="text-xs text-secondary">2025-08-08</td>
                             <td>
-                                <p class="p-2">Apacoba</p>
-                            </td>
-                            <td>
-                                <button type="button" class="status bg-green-300 p-2 text-white rounded-lg">
+                                <button type="button" class="status bg-green-400 m-1 p-2 text-white rounded-lg">
                                     <i class="fa-solid fa-check"></i>
                                     <span>
                                         Completed
@@ -100,43 +95,39 @@
                                 </button>
                             </td>
                             <td>
-                                <button type="button" class="bg-red-500 text-white p-2 rounded-lg">Delete</button>
+                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
                             </td>
                         </tr>
                         <tr>
-                            <!-- <li class="flex items-center rowflex my-1 gap-3"> -->
                             <td>
-                                <button type="button"
-                                    class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
-                                    onclick="check()"></button>
+                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
+                                    <input type="checkbox">
+                                    <p class="text-left text-sm">Belum selesai dawg</p>
+                                </div>
                             </td>
+                            <td class="text-xs text-secondary">2025-08-12</td>
                             <td>
-                                <p class="p-2">Apacoba</p>
-                            </td>
-                            <td>
-                                <button type="button"
-                                    class="status bg-yellow-300 p-2 text-white rounded-lg">
+                                <button type="button" class="status bg-yellow-400 m-1 p-2 text-white rounded-lg">
                                     <i class="fa-solid fa-clock"></i>
                                     <span>
                                         Unfinished</button>
-                                    </span>
+                                </span>
                             </td>
                             <td>
-                                <button type="button" class="bg-red-500 text-white p-2 rounded-lg">Delete</button>
+                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
                             </td>
                         </tr>
                         <tr>
                             <!-- <li class="flex items-center rowflex my-1 gap-3"> -->
                             <td>
-                                <button type="button"
-                                    class="btn2 inline-block align-middle p-2 border-1 border-blue-500 hover:shadow-md hover:shadow-blue-200 focus:shadow-blue-500 "
-                                    onclick="check()"></button>
+                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
+                                    <input type="checkbox">
+                                    <p class="text-left text-sm">Apacoba</p>
+                                </div>
                             </td>
+                            <td class="text-xs text-secondary">2025-08-08</td>
                             <td>
-                                <p class="p-2">Apacoba</p>
-                            </td>
-                            <td>
-                                <button type="button" class="status bg-red-300 p-2 text-white rounded-lg">
+                                <button type="button" class="status bg-red-400 m-1 p-2 text-white rounded-lg">
                                     <i class="fa-solid fa-x"></i>
                                     <span>
                                         Deadline....
@@ -144,7 +135,7 @@
                                 </button>
                             </td>
                             <td>
-                                <button type="button" class="bg-red-500 text-white p-2 rounded-lg">Delete</button>
+                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
                             </td>
                         </tr>
                     </tbody>
