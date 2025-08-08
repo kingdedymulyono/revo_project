@@ -2,8 +2,11 @@
 //     window.location.href="./test.htm"
 // }
 const btn2=document.querySelectorAll('.btn2');
+const sendBtn=document.getElementById("sendBtn")
 const btnf=document.getElementById("btnF")
-const filterBox=document.getElementById("filterBox")
+const filterBox=document.getElementById("filterBox");
+const textInput=document.getElementById("textInput");
+const deadlineInput=document.getElementById("deadlineInput")
 var i=0;
 var x=0;
 const check = () => {
@@ -32,4 +35,18 @@ const showFilter = () => {
         x=0
     }
     
+}
+sendBtn.addEventListener("click",() => {
+    sendData();
+})
+const sendData = () => {
+    var textValue=textInput.value;
+    var deadlineValue=deadlineInput.value;
+    if(textValue=='' || deadlineValue == ''){
+        alert("hytamm");
+        console.log("apcb hytam")
+    }else{
+        console.log(textValue);
+        console.log(deadlineValue);
+    }
 }

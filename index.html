@@ -27,17 +27,18 @@
                 <!-- <section class="flex align-items center justify-content-center gap-5"> -->
                 <!-- <label for="input1" class="p-2">What is your activity?</label> -->
                 <div class="w-full flex justify-center gap-4 p-2 rounded-xl inpBox1">
-                    <input type="text" name="input1" id="text"
+                    <input type="text" name="input1" id="textInput"
                         class="bg-blue-50 border border-blue-200 focus:shadow-sm focus:shadow-blue-500/50 duration-400"
                         placeholder="Input here">
                     <div>
                         <label for="deadline" class="deadline">Deadline</label>
-                        <input type="date" id="deadline" name="deadline"
+                        <input type="date" id="deadlineInput" name="deadline"
                             class="bg-blue-50 p-2 rounded-lg border border-blue-200">
                     </div>
                     <button type="button"
+                        id="sendBtn"
                         class="btn1 bg-sky-200 hover:bg-sky-400 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 duration-400 "
-                        onclick="href()">Kirim</button>
+                        >Kirim</button>
                     <!-- </section> -->
                     <!-- <a
                             class="mx-auto p-2 text-center mt-4 border-2 border-sky-400 cursor-pointer rounded-full duration-400 text-xs hover:bg-sky-400 hover:text-white hover:shadow-cyan-500/50 hover:shadow-lg">Advanced
@@ -60,8 +61,8 @@
                             sort
                         </span>
                     </button>
-                    <div class="filter p-1" id="filterBox">
-                        <select class=" border rounded-lg p-1 py-0 w-full" name="filter" id="filter">
+                    <div class="filter p-1 " id="filterBox">
+                        <select class=" border rounded-lg p-1 py-0 m-4 mx-auto w-full" name="filter" id="filter">
                             <option value="filter" selected>Select a Filter</option>
                             <option value="0">Completed</option>
                             <option value="1">Uncompleted</option>
@@ -69,14 +70,15 @@
                         </select>
                     </div>
                 </div>
+                <h3 class="p-2 m-2 xl">List Tugas</h3>
                 <table class="table w-full text-center">
                     <thead>
-                        <tr>
+                        <!-- <tr>
                             <th class="p-2">Btn</th>
                             <th class="p-2">Name</th>
                             <th class="p-2">Status</th>
                             <th class="p-2">Action</th>
-                        </tr>
+                        </tr> -->
                     </thead>
                     <tbody>
                         <tr>
