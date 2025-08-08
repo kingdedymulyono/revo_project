@@ -16,22 +16,38 @@ let xid = 0;
 listArray.push({
     id: xid++,
     text: 'Default1',
-    date: '2025-08-08',
+    date: '2025-01-02',
     status: "Complete"
 });
 listArray.push({
     id: xid++,
     text: 'Default2',
-    date: '2025-06-06',
+    date: '2025-08-04',
     status: "Pending"
 });
 listArray.push({
     id: xid++,
     text: 'Default3',
-    date: '2025-06-06',
+    date: '2025-08-09',
     status: "Deadline"
 });
-console.table(listArray)
+const checkDeadline = () =>{
+    var D = new Date;
+    var date = D.getDate();
+    var year = D.getFullYear().toString();
+    var month = D.getMonth();
+    var realMonth = (month + 1).toString();
+    listArray.map((item)=>{
+        if(item.date.substring(0,4)==year && item.date.substring(6,7)==realMonth && item.date.substring(9,10)==date){
+            item.status='Deadline';
+            console.table(listArray)
+        } 
+    })
+}
+window.addEventListener("DOMContentLoaded",()=>{
+    checkDeadline();
+    updList('all');
+})
 const showFilter = () => {
     if (x == 0) {
         filterBox.style.display = 'block'
@@ -42,17 +58,7 @@ const showFilter = () => {
     }
 
 }
-var apalah;
-const checkDeadline = () => {
-    var D = new Date;
-    var date = D.getDate();
-    var year = D.getFullYear().toString();
-    var month = D.getMonth();
-    var realMonth = (month + 1).toString();
-    apalah = (`${year}-0${realMonth}-0${date}`);
-    console.log(apalah);
-}
-checkDeadline();
+// checkDeadline();
 sendBtn.addEventListener("click", () => {
     sendData();
 })
@@ -61,17 +67,24 @@ const sendData = () => {
     var textValue = textInput.value;
     var deadlineValue = deadlineInput.value;
     if (textValue == '' || deadlineValue == '') {
-        alert("hytamm");
-        console.log("apcb hytam")
+        Swal.fire({
+            title: 'Error!',
+            text: 'Please input a text or date',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
     } else {
         listArray.push({
-            id:xid++,
+            id: xid++,
             text: textValue,
             date: deadlineValue,
             status: "Pending"
         })
         res.innerHTML = ''
+        checkDeadline();
         updList('all');
+        textInput.value = '';
+        deadlineInput.value = '';
     }
 }
 const statusColor = (s) => {
@@ -120,8 +133,7 @@ filter.addEventListener("change", () => {
             </button>
             </td>
             <td>
-            <
-            id="${item.id}"
+            <id="${item.id}"
             button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
             </td>
             </tr>
@@ -152,8 +164,7 @@ filter.addEventListener("change", () => {
             </button>
             </td>
             <td>
-            <
-            id="${item.id}"
+            <id="${item.id}"
             button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
             </td>
             </tr>
@@ -230,51 +241,62 @@ const updList = (filter) => {
         }
     })
 }
-updList('all');
+// updList('all');
 
-var sxi=0
+var sxi = 0
 res.addEventListener("click", (e) => {
     if (e.target.classList.contains("deleteBtn")) {
         deleteItem(Number(e.target.id));
     }
     if (e.target.classList.contains("checkBtn")) {
         console.log(e.target.value)
-        if(sxi==0){
+        if (sxi == 0) {
             statusItem(e.target.id)
             console.table(listArray)
-            sxi+=1;
-        }else{
+            sxi += 1;
+        } else {
             statusItem(e.target.id)
-            // e.target.value='on'
-            sxi=0;
+            sxi = 0;
         }
     }
 });
 
 const deleteItem = (id) => {
-    id = Number(id)
-    // if (!confirm("Are you sure you want to delete this item?")) {
-    //     return;
-    // }
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your task has been deleted.",
+                icon: "success"
+            });
+            id = Number(id)
+            const index = listArray.findIndex(item => item.id === id);
+            console.log(index)
+            listArray.splice(index, 1);
+            console.table(listArray)
+            res.innerHTML = '';
+            updList('all');
+        }
+    });
 
-    const index = listArray.findIndex(item => item.id === id);
-    // if (index !== 0) {
-    console.log(index)
-    listArray.splice(index, 1);
-    console.table(listArray)
-    res.innerHTML = '';
-    updList('all');
-    // }
 };
 
 const statusItem = (id) => {
-    id=id[1]    
-    listArray.map((item)=>{
-        if(item.id==id){
-            if(item.status=='Pending'){
-                item.status='Complete'
-            }else{
-                item.status='Pending'
+    id = id[1]
+    listArray.map((item) => {
+        if (item.id == id) {
+            if (item.status == 'Pending') {
+                item.status = 'Complete'
+            } else {
+                item.status = 'Pending'
             }
         }
     })
