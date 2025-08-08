@@ -1,4 +1,6 @@
-const buttons = document.querySelectorAll('.btn2');
+var buttons = document.querySelectorAll('.btn2');
+var deleteBtn = document.querySelectorAll('.deleteBtn')
+
 const sendBtn = document.getElementById("sendBtn")
 const btnf = document.getElementById("btnF")
 const filterBox = document.getElementById("filterBox");
@@ -10,22 +12,26 @@ const res = document.getElementById("res");
 let listArray = [];
 var i = 0;
 var x = 0;
-
+let xid = 0;
 listArray.push({
-    text: 'ambatukam',
+    id: xid++,
+    text: 'Default1',
     date: '2025-08-08',
     status: "Complete"
 });
 listArray.push({
-    text: 'anakHytam',
+    id: xid++,
+    text: 'Default2',
     date: '2025-06-06',
     status: "Pending"
 });
 listArray.push({
-    text: 'xixixi',
+    id: xid++,
+    text: 'Default3',
     date: '2025-06-06',
     status: "Deadline"
 });
+console.table(listArray)
 const showFilter = () => {
     if (x == 0) {
         filterBox.style.display = 'block'
@@ -59,6 +65,7 @@ const sendData = () => {
         console.log("apcb hytam")
     } else {
         listArray.push({
+            id:xid++,
             text: textValue,
             date: deadlineValue,
             status: "Pending"
@@ -67,45 +74,92 @@ const sendData = () => {
         updList('all');
     }
 }
-const statusColor = (s) => { 
-    if(s=='Complete'){
+const statusColor = (s) => {
+    if (s == 'Complete') {
         return "bg-green-500"
-    }else if(s=='Pending'){
+    } else if (s == 'Pending') {
         return "bg-yellow-500"
-    }else if(s=='Deadline'){
+    } else if (s == 'Deadline') {
         return "bg-red-500"
+    }
+}
+const statusIcon = (s) => {
+    if (s == 'Complete') {
+        return "check"
+    } else if (s == 'Pending') {
+        return "clock"
+    } else if (s == 'Deadline') {
+        return "x"
     }
 }
 filter.addEventListener("change", () => {
     var fValue = filter.value;
     var resId = 0;
     console.log(fValue)
+    res.innerHTML = ''
     listArray.forEach((item) => {
-        if (item.status==fValue) {
-            // if(fValue=)
-            res.innerHTML = `
+        if (fValue == 'all') {
+            res.innerHTML += `
             <tr>
-        <td>
+            <td>
             <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
-                                    <p class="text-left text-sm">${item.text}</p>
-                                </div>
+            <input 
+            id=s${item.id}
+            class="checkBtn"
+            type="checkbox">
+            <p class="text-left text-sm">${item.text}</p>
+            </div>
             </td>
             <td class="text-xs">${item.date}</td>
             <td>
             <button type="button" class="status ${statusColor(item.status)} p-2 text-white rounded-lg">
-            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-${statusIcon(item.status)}"></i>
             <span>
             ${item.status}
-                        </span>
-                        </button>
-                        </td>
-                        <td>
-                        <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
-                        </td>
-                        </tr>
-                        `
+            </span>
+            </button>
+            </td>
+            <td>
+            <
+            id="${item.id}"
+            button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
+            </td>
+            </tr>
+            `
             resId += 1;
+        } else {
+
+            if (item.status == fValue) {
+                // if(fValue=)
+                res.innerHTML += `
+            <tr>
+            <td>
+            <div class="flex flex-column gap-4 rowflex items-center justify-start">
+            <input 
+            id=s${item.id}
+            class="checkBtn"
+            type="checkbox">
+            <p class="text-left text-sm">${item.text}</p>
+            </div>
+            </td>
+            <td class="text-xs">${item.date}</td>
+            <td>
+            <button type="button" class="status ${statusColor(item.status)} p-2 text-white rounded-lg">
+            <i class="fa-solid fa-${statusIcon(item.status)}"></i>
+            <span>
+            ${item.status}
+            </span>
+            </button>
+            </td>
+            <td>
+            <
+            id="${item.id}"
+            button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
+            </td>
+            </tr>
+            `
+                resId += 1;
+            }
         }
     })
 })
@@ -117,21 +171,26 @@ const updList = (filter) => {
             <tr>
         <td>
             <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
+                                    <input 
+                                    id=s${item.id}
+                                    class="checkBtn"
+                                    type="checkbox">
                                     <p class="text-left text-sm">${item.text}</p>
                                 </div>
             </td>
             <td class="text-xs">${item.date}</td>
             <td>
             <button type="button" class="status ${statusColor(item.status)} p-2 text-white rounded-lg">
-            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-${statusIcon(item.status)}"></i>
             <span>
              ${item.status}
                         </span>
                         </button>
                         </td>
                         <td>
-                        <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
+                        <button type="button" 
+                        id="${item.id}"
+                        class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
                         </td>
                         </tr>
                         `
@@ -143,21 +202,26 @@ const updList = (filter) => {
             <tr>
         <td>
             <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
+                                    <input 
+                                    id=s${item.id}
+                                    class="checkBtn"
+                                    type="checkbox">
                                     <p class="text-left text-sm">${item.text}</p>
                                     </div>
             </td>
             <td class="text-xs">${item.date}</td>
             <td>
             <button type="button" class="status bg-yellow-300 p-2 text-white rounded-lg">
-            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-${statusIcon(item.status)}"></i>
             <span>
              ${item.status}
                         </span>
                         </button>
                         </td>
                         <td>
-                        <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
+                        <button type="button" 
+                        id="${item.id}"
+                        class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white deleteBtn">Delete</button>
                         </td>
                         </tr>
                         `
@@ -167,3 +231,55 @@ const updList = (filter) => {
     })
 }
 updList('all');
+
+var sxi=0
+res.addEventListener("click", (e) => {
+    if (e.target.classList.contains("deleteBtn")) {
+        deleteItem(Number(e.target.id));
+    }
+    if (e.target.classList.contains("checkBtn")) {
+        console.log(e.target.value)
+        if(sxi==0){
+            statusItem(e.target.id)
+            console.table(listArray)
+            sxi+=1;
+        }else{
+            statusItem(e.target.id)
+            // e.target.value='on'
+            sxi=0;
+        }
+    }
+});
+
+const deleteItem = (id) => {
+    id = Number(id)
+    // if (!confirm("Are you sure you want to delete this item?")) {
+    //     return;
+    // }
+
+    const index = listArray.findIndex(item => item.id === id);
+    // if (index !== 0) {
+    console.log(index)
+    listArray.splice(index, 1);
+    console.table(listArray)
+    res.innerHTML = '';
+    updList('all');
+    // }
+};
+
+const statusItem = (id) => {
+    id=id[1]    
+    listArray.map((item)=>{
+        if(item.id==id){
+            if(item.status=='Pending'){
+                item.status='Complete'
+            }else{
+                item.status='Pending'
+            }
+        }
+    })
+    console.table(listArray)
+    res.innerHTML = '';
+    updList('all');
+
+}

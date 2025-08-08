@@ -60,7 +60,7 @@
                     </button>
                     <div class="filter p-1 " id="filterBox">
                         <select class=" border rounded-lg p-1 py-0 m-4 mx-auto w-full" name="filter" id="filter">
-                            <option value="filter" selected>Select a Filter</option>
+                            <option value="all" selected>Select a Filter</option>
                             <option value="Complete">Completed</option>
                             <option value="Pending">Uncompleted</option>
                             <option value="Deadline">Abandoned</option>
@@ -78,66 +78,6 @@
                         </tr> -->
                     </thead>
                     <tbody id="res">
-                        <tr>
-                            <td>
-                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
-                                    <p class="text-left text-sm">Sudah selesai</p>
-                                </div>
-                            </td>
-                            <td class="text-xs text-secondary">2025-08-08</td>
-                            <td>
-                                <button type="button" class="status bg-green-400 m-1 p-2 text-white rounded-lg">
-                                    <i class="fa-solid fa-check"></i>
-                                    <span>
-                                        Completed
-                                    </span>
-                                </button>
-                            </td>
-                            <td>
-                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
-                                    <p class="text-left text-sm">Belum selesai dawg</p>
-                                </div>
-                            </td>
-                            <td class="text-xs text-secondary">2025-08-12</td>
-                            <td>
-                                <button type="button" class="status bg-yellow-400 m-1 p-2 text-white rounded-lg">
-                                    <i class="fa-solid fa-clock"></i>
-                                    <span>
-                                        Unfinished</button>
-                                </span>
-                            </td>
-                            <td>
-                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- <li class="flex items-center rowflex my-1 gap-3"> -->
-                            <td>
-                                <div class="flex flex-column gap-4 rowflex items-center justify-start">
-                                    <input type="checkbox">
-                                    <p class="text-left text-sm">Apacoba</p>
-                                </div>
-                            </td>
-                            <td class="text-xs text-secondary">2025-08-08</td>
-                            <td>
-                                <button type="button" class="status bg-red-400 m-1 p-2 text-white rounded-lg">
-                                    <i class="fa-solid fa-x"></i>
-                                    <span>
-                                        Deadline....
-                                    </span>
-                                </button>
-                            </td>
-                            <td>
-                                <button type="button" class="text-red-500 border duration-400 p-2 text-sm rounded-lg hover:bg-red-500 hover:text-white">Delete</button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -147,7 +87,7 @@
 
 </body>
 <footer class="p-2">
-    <p class="text-blue-800">
+    <p class="text-blue-800 m-2">
         Created by DedyAs or maybe JustKaito
     </p>
 </footer>
